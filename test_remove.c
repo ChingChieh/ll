@@ -5,7 +5,7 @@
 #include "ll.h"
 
 #define DEFAULT_THREAD_NUM 1
-#define DEFAULT_NODE_NUM 20
+#define DEFAULT_NODE_NUM 10000
 ll_t *list;
 void *test(void *ptr) {
 	if(*(int*)ptr > DEFAULT_NODE_NUM){
@@ -13,8 +13,8 @@ void *test(void *ptr) {
 	}
 	int it = DEFAULT_NODE_NUM / *(int*)ptr;
 	for (int i = 0; i < it; ++i) {
-		ll_print(*list);
-		ll_remove_n(list,(list->len % it));
+		//ll_print(*list);
+		ll_remove_n(list,0);
 	}
 	return NULL;
 }
