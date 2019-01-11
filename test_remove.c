@@ -7,17 +7,6 @@
 #define DEFAULT_THREAD_NUM 1 
 ll_t *list;
 void *test(void *ptr) {
-	/*
-    static int a = 0;
-    static int b = 1;
-    static int c = 2;
-    static int d = 3;
-    static int e = 4;
-    static int f = 5;
-    static int g = 6;
-    static int h = 3;
-    static int i = 3;
- 	*/
     ll_insert_first(list, &((uint32_t*)ptr)[3]); 
 	ll_insert_first(list, &((uint32_t*)ptr)[2]);
 	ll_insert_first(list, &((uint32_t*)ptr)[1]);
