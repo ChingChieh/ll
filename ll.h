@@ -33,6 +33,8 @@
 #ifndef LL_H
 #define LL_H
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <pthread.h>
 
 /* type definitions */
@@ -63,6 +65,18 @@ struct ll {
 
     // a function that can print the values in a linked list
     gen_fun_t val_printer;
+};
+
+// ll_node models a linked-list node
+struct ll_node {
+    // pointer to the value at the node
+    void *val;
+
+    // pointer to the next node
+    ll_node_t *nxt;
+
+    // rw mutex
+    pthread_rwlock_t m;
 };
 
 /* function prototypes */
@@ -118,5 +132,15 @@ void ll_print(ll_t list);
 // a generic taredown function for values that don't need anything done
 void ll_no_teardown(void *n);
 
-// LL_H
+//
+int num_equals_3(void *n);
+
+//
+void num_teardown(void *n);
+
+//
+void num_printer(void *n);
+
+//void *test(void *ptr);
+//LL_H
 #endif
